@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3544db7c-903e-443c-8edf-ac4509457c56">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     supplier.`kpt` AS supplier_kpt,
+     supplier.`npt` AS supplier_npt,
+     supplier.`tgl` AS supplier_tgl,
+     supplier.`apt` AS supplier_apt,
+     supplier.`tpt` AS supplier_tpt,
+     supplier.`ept` AS supplier_ept
+FROM
+     `supplier` supplier]]>
+	</queryString>
+	<field name="supplier_kpt" class="java.lang.String"/>
+	<field name="supplier_npt" class="java.lang.String"/>
+	<field name="supplier_tgl" class="java.lang.String"/>
+	<field name="supplier_apt" class="java.lang.String"/>
+	<field name="supplier_tpt" class="java.lang.String"/>
+	<field name="supplier_ept" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

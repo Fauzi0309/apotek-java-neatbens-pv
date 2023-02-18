@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fd852e6d-1aab-4406-be6e-5b141c497eac">
+	<property name="ireport.zoom" value="1.9487171000000019"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="31"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     kategori.`id` AS kategori_id,
+     kategori.`nama` AS kategori_nama,
+     obat.`kd_obat` AS obat_kd_obat,
+     obat.`nm_obat` AS obat_nm_obat,
+     obat.`jenis_obat` AS obat_jenis_obat,
+     obat.`satuan` AS obat_satuan,
+     obat.`harga` AS obat_harga,
+     barangmasuk.`id` AS barangmasuk_id,
+     barangmasuk.`kdo` AS barangmasuk_kdo,
+     barangmasuk.`supp` AS barangmasuk_supp,
+     barangmasuk.`tgl` AS barangmasuk_tgl,
+     barangmasuk.`stok` AS barangmasuk_stok
+FROM
+     `barangmasuk` barangmasuk INNER JOIN `obat` obat ON barangmasuk.`kdo` = obat.`kd_obat`
+     INNER JOIN `kategori` kategori ON obat.`jenis_obat` = kategori.`id`]]>
+	</queryString>
+	<field name="kategori_id" class="java.lang.Integer"/>
+	<field name="kategori_nama" class="java.lang.String"/>
+	<field name="obat_kd_obat" class="java.lang.String"/>
+	<field name="obat_nm_obat" class="java.lang.String"/>
+	<field name="obat_jenis_obat" class="java.lang.String"/>
+	<field name="obat_satuan" class="java.lang.String"/>
+	<field name="obat_harga" class="java.lang.Integer"/>
+	<field name="barangmasuk_id" class="java.lang.Integer"/>
+	<field name="barangmasuk_kdo" class="java.lang.String"/>
+	<field name="barangmasuk_supp" class="java.lang.String"/>
+	<field name="barangmasuk_tgl" class="java.lang.String"/>
+	<field name="barangmasuk_stok" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="56" y="14" width="452" height="41" uuid="c4c8d4a5-dcf9-450b-9730-c9a0b947f9cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Obat]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="3da236a3-a139-4e0d-9c80-2460ab8b5d5b"/>
+				<graphicElement>
+					<pen lineWidth="1.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="31" uuid="939214a0-e456-4c2b-8328-dad6fa344aa7"/>
+			</line>
+			<line>
+				<reportElement x="64" y="0" width="1" height="31" uuid="0da20ff3-016b-4627-8c83-6540dad66e4a"/>
+			</line>
+			<line>
+				<reportElement x="169" y="0" width="1" height="31" uuid="e0d240e1-567c-4a5c-b8fd-b566200e1ddb"/>
+			</line>
+			<line>
+				<reportElement x="277" y="0" width="1" height="31" uuid="f6a4c4fc-6db3-4f83-848f-1b5869edb0b2"/>
+			</line>
+			<line>
+				<reportElement x="376" y="0" width="1" height="31" uuid="56563491-40ff-45e9-8aba-b06aea80e281"/>
+			</line>
+			<line>
+				<reportElement x="465" y="0" width="1" height="31" uuid="5133cd9a-b64d-4056-9338-bc3e5936b135"/>
+			</line>
+			<line>
+				<reportElement x="554" y="0" width="1" height="31" uuid="03beb3cc-e3ab-4af2-916a-bda527e0b5d5"/>
+			</line>
+			<staticText>
+				<reportElement x="470" y="8" width="79" height="15" uuid="ed33e11c-916b-4a9e-906a-aa492929311b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="8" width="98" height="15" uuid="f1e9e480-4842-410f-bd41-0e292713d823"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="8" width="80" height="15" uuid="bd3b948e-669b-4ce5-9da1-f7258430f1d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Satuan Obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="8" width="89" height="15" uuid="015a1bf3-48fc-4b8e-9acb-68a40ce515da"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="8" width="91" height="15" uuid="4d267746-36df-4d2e-a149-abc60651462b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="8" width="47" height="15" uuid="db99b31f-bcf2-4290-80bf-fb1c8e452521"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="175" y="5" width="98" height="20" uuid="2dd84210-f32f-40f7-a241-bd6843cce1e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{kategori_nama}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="4ba91ddb-c60f-4b21-982c-3609177ca730"/>
+				<graphicElement>
+					<pen lineWidth="1.75"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="25" uuid="f1e19653-960f-49c9-9e68-d13caa238f1b"/>
+			</line>
+			<line>
+				<reportElement x="64" y="1" width="1" height="25" uuid="30ad2f8f-428a-4c06-95be-113872107735"/>
+			</line>
+			<line>
+				<reportElement x="169" y="1" width="1" height="25" uuid="d66be422-77b0-4ed4-8587-589bc761236b"/>
+			</line>
+			<line>
+				<reportElement x="277" y="1" width="1" height="25" uuid="03de3cab-b9f1-4ac4-a039-651d8ec3c2e0"/>
+			</line>
+			<line>
+				<reportElement x="376" y="1" width="1" height="25" uuid="b6077ddf-1513-4cd1-9871-9b7b5924abd5"/>
+			</line>
+			<line>
+				<reportElement x="465" y="1" width="1" height="25" uuid="3ef076fb-7179-4158-a030-f4eb0761a24e"/>
+			</line>
+			<line>
+				<reportElement x="554" y="1" width="1" height="25" uuid="bc924317-b3db-4087-869b-61d1b6093306"/>
+			</line>
+			<textField>
+				<reportElement x="9" y="5" width="47" height="20" uuid="23edcb83-706f-43d8-b0ba-aacc8ac72bd6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{obat_kd_obat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="5" width="91" height="20" uuid="4025aa06-d0a6-470d-8c5c-29560b427e51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{obat_nm_obat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="5" width="80" height="20" uuid="a6ee3f91-ecd6-4813-9080-10b9283c5a84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{obat_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="5" width="79" height="20" uuid="9748aede-664a-428f-b067-c2ffbfdf4973"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{barangmasuk_stok}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="5" width="89" height="20" uuid="66c9ca59-1f82-4200-bb65-9c9d99f67be2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{obat_harga}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

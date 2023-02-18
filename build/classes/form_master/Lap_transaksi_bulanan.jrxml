@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a24e35e1-63ab-44b2-a0fd-5e2e49d0ee20">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="selected_date" class="java.lang.String"/>
+	<parameter name="date_start" class="java.lang.String"/>
+	<parameter name="date_end" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT n.id_nota, SUM(i.qty * i.harga), n.tgl_nota FROM nota n INNER JOIN isi i ON n.id_nota = i.id_nota WHERE n.tgl_nota between $P{date_start} and $P{date_end} group by n.id_nota;]]>
+	</queryString>
+	<field name="id_nota" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SUM(i.qty * i.harga)" class="java.math.BigDecimal"/>
+	<field name="tgl_nota" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="87" y="0" width="364" height="79" uuid="940a6476-bb73-4ca3-9aa1-8ad80a702045"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Bulanan Penjualan]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="507" y="9" width="44" height="20" uuid="a3961118-7c1f-442f-8f04-716f841d594d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{selected_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="451" y="9" width="56" height="20" uuid="1d85341c-4346-49ad-89d4-bb571f9893a6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bulan  :]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="5" width="100" height="20" uuid="a17418ec-dfda-4aee-8b44-93848843d441"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="5" width="100" height="20" uuid="9b2adb36-6ac6-497f-90cd-108867b3447a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="129" y="5" width="100" height="20" uuid="dc0a136e-bce0-4b3e-bdb3-dc5d90daa5fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Nota]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="74c6aad8-c6ef-4ed6-bf5c-3098a73a413b"/>
+			</line>
+			<line>
+				<reportElement x="234" y="1" width="1" height="31" uuid="9bffc900-35a1-4bb2-a2c8-701f4ac78424"/>
+			</line>
+			<line>
+				<reportElement x="121" y="0" width="1" height="31" uuid="cbbda231-d4bd-4e80-b5c6-ef5117cd3b07"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="31" uuid="1099fb1e-8b4b-42fe-9f20-868eb685ea43"/>
+			</line>
+			<line>
+				<reportElement x="554" y="1" width="1" height="31" uuid="d6e43707-67dd-44ec-a869-09ea57be8974"/>
+			</line>
+			<line>
+				<reportElement x="444" y="1" width="1" height="31" uuid="d2282f52-52a7-4d43-911b-63005b395488"/>
+			</line>
+			<line>
+				<reportElement x="0" y="31" width="555" height="1" uuid="940cfbad-86f9-450b-8f97-e7188daf060b"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="129" y="0" width="100" height="20" uuid="ab8aa113-1acb-4e9b-be4f-b5ff0511a58a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_nota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="0" width="100" height="20" uuid="97682ab1-9a26-47f7-b126-00283b1788d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{SUM(i.qty * i.harga)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="0" width="100" height="20" uuid="45ff181a-5b59-4cd2-9a1e-eb739c0514c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_nota}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
